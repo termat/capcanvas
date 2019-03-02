@@ -1,1 +1,1 @@
-web: java -cp target/classes:target/dependency/* net.termat.webapp.capcanvas.Main
+web: java -cp target/classes net.termat.webapp.capcanvas.Main
