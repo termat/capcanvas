@@ -1,1 +1,1 @@
-web: java -cp target/classes net.termat.webapp.capcanvas.Main
+web: java -jar target/test-jar-with-dependencies.jar
