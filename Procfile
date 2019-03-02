@@ -1,1 +1,1 @@
-web: java -jar target/test-jar-with-dependencies.jar
+web: java -Xmx1024m -jar target/test-jar-with-dependencies.jar
