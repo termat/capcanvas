@@ -19,7 +19,7 @@ public class Main {
 	public static void main(String[] args) {
 		Spark.staticFileLocation("/public");
 		code=getJs();
-        get("/capcanvas", (request, response) -> {
+        get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
              return new ModelAndView(model, "index.mustache");
         }, new MustacheTemplateEngine());
