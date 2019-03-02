@@ -69,14 +69,6 @@ public class Main {
 		}
 	}
 
-    static int getHerokuAssignedPort() {
-        ProcessBuilder processBuilder = new ProcessBuilder();
-        if (processBuilder.environment().get("PORT") != null) {
-            return Integer.parseInt(processBuilder.environment().get("PORT"));
-        }
-        return 4567;
-    }
-
 	private static Map<String,String> paramMap(String param) throws Exception{
     	Map<String,String> ret=new HashMap<String,String>();
     	String[] p=param.split("&");
