@@ -4,10 +4,10 @@ import static spark.Spark.get;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
-import java.net.InetAddress;
 import java.net.URL;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 import spark.ModelAndView;
 import spark.Spark;
@@ -19,6 +19,12 @@ public class Main {
 	public static void main(String[] args) {
 		Spark.staticFileLocation("/public");
 		code=getJs();
+		Optional<String> optionalPort = Optional.ofNullable(System.getenv("PORT"));
+        optionalPort.ifPresent(p -> {
+            int port = Integer.parseInt(p);
+            Spark.port(port);
+        });
+
         get("/", (request, response) -> {
             Map<String, Object> model = new HashMap<>();
              return new ModelAndView(model, "index.mustache");
@@ -26,10 +32,7 @@ public class Main {
 
         get("/capcanvas/:param", (request, response) -> {
         	try{
-        		String url=request.url();
-        		url=url.substring(0, url.indexOf("capcanvas"))+"js/CCapture.all.min.js";
-        		System.out.println(url);
-
+        		String url="https://capcanvas.herokuapp.com/js/CCapture.all.min.js";
         		Map<String,String> map=paramMap(request.params("param"));
         		String id=map.get("id");
         		String fps=map.get("fps");
@@ -66,14 +69,13 @@ public class Main {
 		}
 	}
 
-	private static String getHostName() {
-	    try {
-	        return InetAddress.getLocalHost().getHostAddress();
-	    }catch (Exception e) {
-	        e.printStackTrace();
-	    }
-	    return "UnknownHost";
-	}
+    static int getHerokuAssignedPort() {
+        ProcessBuilder processBuilder = new ProcessBuilder();
+        if (processBuilder.environment().get("PORT") != null) {
+            return Integer.parseInt(processBuilder.environment().get("PORT"));
+        }
+        return 4567;
+    }
 
 	private static Map<String,String> paramMap(String param) throws Exception{
     	Map<String,String> ret=new HashMap<String,String>();
