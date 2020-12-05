@@ -4,7 +4,7 @@ Canvasの画像を動画（Webm）として出力するサービスです。<br 
 
 ## Overview
 Qiitaの記事を参照下さい。<br />
-<a href="" target="_blank">Canvasから動画を生成するWebサービスを試作してみた。</a>
+<a href="https://qiita.com/t-mat/items/47dcc16fcf33125e10d3" target="_blank">Canvasから動画を生成するWebサービスを試作してみた。</a>
 
 ## Credits
 <ul>
