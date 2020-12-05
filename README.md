@@ -3,7 +3,7 @@ Canvasの画像を動画（Webm）として出力するサービスです。<br 
 <a href="https://capcanvas.herokuapp.com/">https://capcanvas.herokuapp.com/</a><br />
 
 ## Overview
-Qiitaの記事を参照下さい。
+Qiitaの記事を参照下さい。<br />
 <a href="" target="_blank">Canvasから動画を生成するWebサービスを試作してみた。</a>
 
 ## Credits
